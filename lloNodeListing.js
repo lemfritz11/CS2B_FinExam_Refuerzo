@@ -1,31 +1,46 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
 
-    def append(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            return
-        temp = self.head
-        while temp.next:
-            temp = temp.next
-        temp.next = new_node
+    append(value) {
+        const newNode = new Node(value);
+        if (this.head === null) {
+            this.head = newNode;
+        } else {
+            let current = this.head;
+            while (current.next !== null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+        this.size++;
+        this.print();
+    }
 
-    def display(self):
-        temp = self.head
-        while temp:
-            print(temp.data, end=" -> ")
-            temp = temp.next
-        print("None")
+    print() {
+        let current = this.head;
+        const elements = [];
+        while (current !== null) {
+            elements.push(current.value);
+            current = current.next;
+        }
+        console.log(`Linked List: ${elements.join(" -> ")}`);
+    }
+}
 
-ll = LinkedList()
-ll.append(10)
-ll.append(20)
-ll.append(30)
-ll.display()
+// Create a LinkedList instance
+const linkedList = new LinkedList();
+
+// Append the given items
+linkedList.append("Data Structures – Array");
+linkedList.append("Variable Type – Integer");
+linkedList.append("Sorting Algorithm – Bubble Sort");
