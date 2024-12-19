@@ -1,20 +1,25 @@
-class Stack:
-    def __init__(self):
-        self.items = []
+class Stack {
+  constructor() {
+    this.items = [];
+  }
 
-    def push(self, item):
-        self.items.append(item)
+  push(item) {
+    this.items.push(item);
+  }
 
-    def pop(self):
-        return self.items.pop() if self.items else None
+  pop() {
+    return this.items.length > 0 ? this.items.pop() : null;
+  }
 
-    def display(self):
-        print(self.items)
+  display() {
+    console.log(this.items);
+  }
+}
 
-stack = Stack()
-stack.push("Milk")
-stack.push("Eggs")
-stack.push("Bread")
-stack.display()
-stack.pop()
-stack.display()
+const stack = new Stack();
+stack.push("Milk");
+stack.push("Eggs");
+stack.push("Bread");
+stack.display();
+stack.pop();
+stack.display();
